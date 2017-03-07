@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -77,7 +78,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -93,13 +94,13 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(value);
+            for (Map.Entry<String, String> entry: row.entrySet()) {
 
-            if (aValue.contains(value)) {
-                jobs.add(row);
+                if ((entry.getValue().toLowerCase()).contains(value.toLowerCase())) {
+                    jobs.add(row);
+                }
             }
         }
-
         return jobs;
     }
 
