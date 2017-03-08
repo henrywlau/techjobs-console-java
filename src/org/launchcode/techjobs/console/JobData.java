@@ -144,5 +144,4 @@ public class JobData {
             e.printStackTrace();
         }
     }
-
 }
